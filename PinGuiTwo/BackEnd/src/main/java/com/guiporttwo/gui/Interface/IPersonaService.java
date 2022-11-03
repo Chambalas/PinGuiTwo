@@ -1,0 +1,18 @@
+package com.guiporttwo.gui.Interface;
+
+import com.guiporttwo.gui.Entity.Persona;
+import java.util.List;
+
+public interface IPersonaService {
+    //Traer una lista de personas
+    public List<Persona>getPersona();
+    
+    //Guardar un objeto de tipo persona
+    public void savePersona(Persona persona);
+    
+    //Eliminar un objeto buscado por ID
+    public void deletePersona(Long id);
+    
+    //Bucar una persona por ID
+    public Persona findPersona(Long id);
+}
