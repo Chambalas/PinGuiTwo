@@ -12,9 +12,9 @@ import { NgForm } from '@angular/forms';
 
 export class LoginComponent implements OnInit {
 
- isLogged = false;
- isLogginDail = false;
- loginUsuario!: LoginUsuario;
+  isLogged = false;
+  isLogginDail = false;
+  loginUsuario!: LoginUsuario;
   nombreUsuario!: string;
   password! : string;
   roles: string[] = [];
@@ -32,28 +32,27 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void{
-    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password), 
-    this.authService.login(this.loginUsuario) , subscribe(data =>{
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.authService.login(this.loginUsuario).subscribe({
+      next: async (data) => {
         this.isLogged = true;
         this.isLogginDail = false;
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.nombreUsuario);
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
+        this.tokenService.setAuthorities([data.authorities]);
+        this.roles = [data.authorities];
         this.router.navigate([''])
-      }, err =>{
+      },
+      error: (err) => {
         this.isLogged = false;
         this.isLogginDail = true;
         this.errMsj = err.error.mensaje;
         console.log(this.errMsj);
         
-      })
+      }
+    });
 
-    }
-
-
+  }
 }
-function subscribe(arg0: (data: any) => void, arg1: (err: any) => void) {
-  throw new Error('Function not implemented.');
-}
+
 
