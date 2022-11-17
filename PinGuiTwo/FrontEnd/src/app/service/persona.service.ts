@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 import { persona } from '../model/persona.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class PersonaService {
-  URL = 'http://localhost:8081/personas/';
+  URL = 'http://localhost:8080/personas/';//cambié a 8080
 
   constructor(private http: HttpClient) { }
 

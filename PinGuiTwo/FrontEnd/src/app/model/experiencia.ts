@@ -8,3 +8,5 @@ export class Experiencia {
         this.descripcionE = descripcionE;
     }
 }
+
+

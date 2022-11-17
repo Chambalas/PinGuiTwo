@@ -11,9 +11,9 @@ const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'login', component: LoginComponent},
   {path:'nuevaexp', component: NewExperienciaComponent},
-  {path: 'editexp/: id', component: EditExperienciaComponent},
+  {path: 'editexp/:id', component: EditExperienciaComponent},//el espacio que había entre los dos puntos y id me daba error al querer editar
   {path: 'nuevaedu', component: NeweducacionComponent},
-  {path: 'editedu/: id', component: EditeducacionComponent}
+  {path: 'editedu/:id', component: EditeducacionComponent}
 ];
 
 @NgModule({

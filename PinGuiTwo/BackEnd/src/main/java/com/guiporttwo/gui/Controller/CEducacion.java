@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.guiporttwo.gui.Controller;
+package com.guiporttwo.gui.Controller;  
 
 import com.guiporttwo.gui.Dto.dtoEducacion;
 import com.guiporttwo.gui.Entity.Educacion;
@@ -25,7 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://localhost/4200")
+@CrossOrigin(origins = "http://localhost:4200")/*estaba como "http://localhost/4200"*/
+
 public class CEducacion {
     @Autowired
     Seducacion sEducacion;
@@ -38,9 +39,9 @@ public class CEducacion {
     
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
-        if(!sEducacion.existsById(id)){
+        if(!sEducacion.existsById(id))/*aquí llave y cerraba en 44*/
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
-        }
+        
         
         Educacion educacion = sEducacion.getOne(id).get();
         return new ResponseEntity(educacion, HttpStatus.OK);
