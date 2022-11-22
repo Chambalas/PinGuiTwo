@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
       this.isLogginDail = false;
       this.roles = this.tokenService.getAuthorities();
     }
-
   }
 
   onLogin(): void{
