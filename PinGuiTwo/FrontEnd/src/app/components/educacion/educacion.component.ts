@@ -19,7 +19,7 @@ export class EducacionComponent implements OnInit {
     if(this.tokenService.getToken()){
       this.isLogged = true;
     } else {
-      this.isLogged = false;
+      this.isLogged = false;  
     }
   }
 

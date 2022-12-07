@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Experiencia } from '../model/experiencia';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class SExperienciaService {
   expURL = 'http://localhost:8080/explab/'
