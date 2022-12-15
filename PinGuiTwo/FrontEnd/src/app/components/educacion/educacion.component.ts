@@ -23,7 +23,7 @@ export class EducacionComponent implements OnInit {
     }
   }
 
-  cargarEducacion(): void{
+  cargarEducacion() : void {
     this.educacionS.lista().subscribe(data =>{this.educacion = data;})
   }
 
@@ -31,6 +31,7 @@ export class EducacionComponent implements OnInit {
     if( id != undefined){
       this.educacionS.delete(id).subscribe(
         data => {
+          alert("Educación eliminada");
           this.cargarEducacion();
         }, err => {
           alert("No se pudo eliminar");

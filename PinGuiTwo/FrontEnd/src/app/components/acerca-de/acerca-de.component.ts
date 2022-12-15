@@ -12,27 +12,27 @@ export class AcercaDeComponent implements OnInit {
   persona: persona =  new persona("","","","");/* si reemplazas por null no trae data*/
   
 
-  constructor(public personaService: PersonaService,
-    private tokenService: TokenService) { }
+  constructor(private personaService: PersonaService, private tokenService: TokenService) { }
   isLogged = false;
 
   ngOnInit(): void {
-   /* this.personaService.getPersona().subscribe(data => {this.persona = data})*/
+
+    
+    /*this.personaService.getPersona().subscribe(data => {this.persona = data})*/
     this.cargarPersona();
     if(this.tokenService.getToken()){
       this.isLogged = true;
-    } else {
-      this.isLogged = false;
+    } else {  
+      this.isLogged = false;  
     }
-
- 
   }
 
-  cargarPersona(){
-    this.personaService.detail(1).subscribe(data =>
-      {this.persona = data})
+  cargarPersona(): void {
+    this.personaService.detail(1).subscribe(data => {this.persona = data})
   }
 
 
 
 }
+  
+
